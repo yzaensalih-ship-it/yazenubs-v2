@@ -1,11 +1,11 @@
-importScripts('https://cdn.jsdelivr.net/npm/@titaniumnetwork-dev/ultraviolet@3.2.7/dist/uv.bundle.js');
-importScripts('https://cdn.jsdelivr.net/npm/@titaniumnetwork-dev/ultraviolet@3.2.7/dist/uv.config.js');
-importScripts(__uv$config.sw);
-
-const uv = new UVServiceWorker();
-
-self.addEventListener('fetch', event => {
-    event.respondWith(
-        uv.fetch(event)
-    );
-});
+self.__uv$config = {
+    prefix: '/uv/service/',
+    bare: 'https://bare.benrogo.net/', // Active public bare server
+    encodeUrl: Ultraviolet.codec.xor.encode,
+    decodeUrl: Ultraviolet.codec.xor.decode,
+    handler: '/uv/uv.handler.js',
+    client: '/uv/uv.client.js',
+    bundle: '/uv/uv.bundle.js',
+    config: '/uv/uv.config.js',
+    sw: '/uv/uv.sw.js',
+};
